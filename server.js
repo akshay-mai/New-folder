@@ -30,7 +30,10 @@ app.use('/api/courses', require('./routes/courseRoutes'));
 app.use('/api/class-subjects', require('./routes/classSubjectRoutes'));
 app.use('/haha', uploadRoute);
 // // Root route
+// console.log('hello')
 app.get('/', (req, res) => {
+console.log('hello inside')
+
   res.send('Coaching Center API is running...');
 });
 
