@@ -8,7 +8,7 @@ const uploadRoute = require('./routes/google');
 
 // Load environment variables
 dotenv.config();
-console.log(connectDB)
+// console.log(connectDB)
 // Connect to MongoDB
 connectDB();
 
