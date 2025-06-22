@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.route('/')
   .post(protect, upload.single('pdf'), uploadPdf)
-  .get(protect, getPdfs);
+  .get( getPdfs);
 
 router.route('/:id')
   .get(protect, getPdf)
