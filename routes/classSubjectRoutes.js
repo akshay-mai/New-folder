@@ -15,7 +15,7 @@ const router = express.Router();
 
 router.route('/')
   .post(protect, createClassSubject)
-  .get(protect, getClassSubjects);
+  .get( getClassSubjects);
 
 router.route('/:id')
   .get(protect, getClassSubject)

@@ -4,7 +4,7 @@ const { protect } = require('../middlewares/authMiddleware');
 const { upload } = require('../middlewares/uploadMiddleware');
 
 const router = express.Router();
-
+// router.route('/ss').get((req,res)=>{console.log('hello pdf');res.json("hello")})
 router.route('/')
   .post(protect, upload.single('pdf'), uploadPdf)
   .get( getPdfs);
