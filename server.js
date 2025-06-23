@@ -17,7 +17,7 @@ const app = express();
 
 // Middleware
 app.options('*', cors({
-  origin: 'http://localhost:3002',
+  origin: 'https://joyful-cassata-0ecc9f.netlify.app',
   credentials: true
 }));
 app.use(cors());
