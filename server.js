@@ -16,11 +16,34 @@ connectDB();
 const app = express();
 
 // Middleware
-app.options('*', cors({
-  origin: 'https://joyful-cassata-0ecc9f.netlify.app',
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:3002', // if you're using port 3002
+  'https://joyful-cassata-0ecc9f.netlify.app'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
-app.use(cors());
+
+app.options('*', cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
