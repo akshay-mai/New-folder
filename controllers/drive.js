@@ -23,6 +23,9 @@ const drive = google.drive({ version: 'v3', auth });
 // console.log(drive.about.youtube())
 
 async function uploadFileToDrive(file) {
+
+  console.log({file})
+  console.log(file.path)
   const fileMetadata = {
     name: file.originalname,
   };

@@ -23,6 +23,7 @@ const upload = multer({
 
 // Upload endpoint
 router.post('/upload', upload.single('file'), async (req, res) => {
+  
   try {
     const { title, description } = req.body;
     const file = req.file;
@@ -38,6 +39,7 @@ router.post('/upload', upload.single('file'), async (req, res) => {
 
     res.status(200).json(newFile);
   } catch (err) {
+    console.log(err)
     res.status(500).json({ message: err.message });
   }
 });
